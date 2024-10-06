@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Odd or Even Checker</h1>
+    <form method="GET">
+        <label for="number">Enter a number:</label>
+        <input type="text" name="number" id="number" required>
+        <button type="submit">Check</button>
+    </form>
+    {% if result %}
+        <p><strong>Result:</strong> {{ result }}</p>
+    {% endif %}
+
+    <hr>
+
+    <h1>Name Filter</h1>
+    <form method="GET">
+        <label for="char">Filter names by starting character:</label>
+        <input type="text" name="char" id="char">
+        <button type="submit">Filter</button>
+    </form>
+    {% if names %}
+        <p><strong>Filtered Names:</strong></p>
+        <ul>
+            {% for name in names %}
+                <li>{{ name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
